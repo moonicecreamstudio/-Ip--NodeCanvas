@@ -28,7 +28,7 @@ namespace NodeCanvas.Tasks.Actions {
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-            Quaternion deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.fixedDeltaTime);
+            Quaternion deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime);
             rb.MoveRotation(rb.rotation * deltaRotation);
         }
 

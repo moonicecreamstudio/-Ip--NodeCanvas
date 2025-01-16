@@ -19,19 +19,20 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-            //audioData = GetComponent<AudioSource>();
+            audioData = agent.GetComponent< AudioSource>();
+            audioData.Stop();
+            audioData.Play();
             //EndAction(true);
         }
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-			audioData.Play();
 		}
 
 		//Called when the task is disabled.
 		protected override void OnStop() {
-			
-		}
+            audioData.Stop();
+        }
 
 		//Called when the task is paused.
 		protected override void OnPause() {

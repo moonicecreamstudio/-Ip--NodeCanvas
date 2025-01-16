@@ -25,7 +25,11 @@ namespace NodeCanvas.Tasks.Actions {
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-            playerGear.transform.localScale += new Vector3(-0.1f, 0, -0.1f) * Time.deltaTime;
+			if (playerGear.transform.localScale.x >= 0.5f || playerGear.transform.localScale.y >= 0.5f || playerGear.transform.localScale.z >= 0.5f)
+			{
+                playerGear.transform.localScale += new Vector3(-0.1f, 0, -0.1f) * Time.deltaTime;
+            }
+
 		}
 
 		//Called when the task is disabled.

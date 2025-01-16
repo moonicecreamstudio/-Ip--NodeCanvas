@@ -8,13 +8,13 @@ namespace NodeCanvas.Tasks.Actions {
 
         GameObject playerGear;
         Rigidbody rb;
-        float speed;
+        float moveSpeed;
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
         protected override string OnInit() {
             rb = agent.GetComponent<Rigidbody>();
-            speed = 100;
+            moveSpeed = 1.5f;
             return null;
 		}
 
@@ -28,21 +28,21 @@ namespace NodeCanvas.Tasks.Actions {
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-            if (Input.GetKeyDown("w"))
+            if (Input.GetKey("w"))
             {
-                rb.transform.position += new Vector3(0, 0, speed) * Time.deltaTime;
+                rb.transform.position += new Vector3(0, 0, moveSpeed) * Time.deltaTime;
             }
-            if (Input.GetKeyDown("a"))
+            if (Input.GetKey("a"))
             {
-                rb.transform.position -= new Vector3(speed, 0, 0) * Time.deltaTime;
+                rb.transform.position -= new Vector3(moveSpeed, 0, 0) * Time.deltaTime;
             }
-            if (Input.GetKeyDown("s"))
+            if (Input.GetKey("s"))
             {
-                rb.transform.position -= new Vector3(0, 0, speed) * Time.deltaTime;
+                rb.transform.position -= new Vector3(0, 0, moveSpeed) * Time.deltaTime;
             }
-            if (Input.GetKeyDown("d"))
+            if (Input.GetKey("d"))
             {
-                rb.transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
+                rb.transform.position += new Vector3(moveSpeed, 0, 0) * Time.deltaTime;
             }
             if (playerGear.transform.localScale.x <= 1)
             {
